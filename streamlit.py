@@ -203,8 +203,11 @@ def main():
             if diagnosis_labels[diagnose] == "Present":
                 labels.append(diagnose)
                 values.append(round(decimals[i][0][1]*100,2))
-            i += 1
-        prob_labels = defaultdict(float)
+           # i += 1
+        prob_labels = {label: value for label, value in zip(labels, values)}
+
+
+        #prob_labels = defaultdict(float)
         for i in range(len(labels)):
             prob_labels[labels[i]] = values[i]
         if len(values) == 0:
