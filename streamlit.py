@@ -204,7 +204,9 @@ def main():
                 labels.append(diagnose)
                 values.append(round(decimals[i][0][1]*100,2))
             i += 1
-        prob_labels = defaultdict(float)
+        #prob_labels = defaultdict(float)
+         prob_labels = {label: value for label, value in zip(labels, values)}
+
         for i in range(len(labels)):
             prob_labels[labels[i]] = values[i]
         if len(values) == 0:
